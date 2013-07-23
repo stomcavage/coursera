@@ -77,23 +77,23 @@ def GF2_span(D, L):
     >>> Vec(D, {x:one for x in D}) in GF2_span(D, L)
     True
     '''
-    return [ vec_sum([a * u, b * v], D) for (u, v, a, b) in itertools.product(L, L, [0, one], [0, one]) ]
-    
+    gf_perms = list(itertools.product([0, one], repeat=len(L))) 
+    return [ vec_sum([ g[i] * L[i] for i in range(len(L)) ], D) for g in gf_perms ]
 
 ## Problem 4
 # Answer with a boolean, please.
 
-is_it_a_vector_space_1 = ...
-is_it_a_vector_space_2 = ...
+is_it_a_vector_space_1 = True
+is_it_a_vector_space_2 = False
 
 
 
 ## Problem 5
-is_it_a_vector_space_3 = ...
-is_it_a_vector_space_4 = ...
+is_it_a_vector_space_3 = True
+is_it_a_vector_space_4 = False
 
 
 ## Problem 6
 
-is_it_a_vector_space_5 = ...
-is_it_a_vector_space_6 = ...
+is_it_a_vector_space_5 = True
+is_it_a_vector_space_6 = False
