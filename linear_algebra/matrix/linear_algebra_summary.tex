@@ -1,0 +1,107 @@
+\documentclass[11pt, oneside]{article}   	% use "amsart" instead of "article" for AMSLaTeX format
+\usepackage{geometry}                		% See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   		% ... or a4paper or a5paper or ... 
+%\geometry{landscape}                		% Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    		% Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}				% Use pdf, png, jpg, or eps§ with pdflatex; use eps in DVI mode
+								% TeX will automatically convert eps --> pdf in pdflatex		
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Linear Algebra Summary}
+\author{Steven Tomcavage}
+%\date{}							% Activate to display a given date or no date
+
+\begin{document}
+\maketitle
+
+\section{Vectors}
+
+The set of all $\textsl{D}$ vectors over $\mathbb{R}$ is written $\mathbb{R}^{\textsl{D}}$, where $\mathbb{R}^{\textsl{D}} = \begin{bmatrix}x_\textsl{1}, x_\textsl{2}, \dots x_{D} \end{bmatrix}$. For example, $ \mathbb{R}^4 =\begin{bmatrix} x_1, x_2, x_3, x_4 \end{bmatrix} $. 
+
+A vector with values that are zero is called a \textit{sparse} vector. If no more than \textit{k} entries are zero, then the vector is \textit{k-sparse}. If all the values in a vector are zero, then that vector is called a \textit{zero vector}.
+
+\subsection{Vector addition}
+
+Vector addition has the effect of translating the vector. That is, if the vector represents a line or a plane, then adding a vector to it will move the line or the place in space. Vector addition is calculated by summing the individual vector entries:
+
+\begin{displaymath}
+\begin{bmatrix}u_1, u_2, \dots, u_n\end{bmatrix} + \begin{bmatrix}v_1, v_2, \dots, v_n\end{bmatrix} = \begin{bmatrix}u_1 + v_1, u_2 + v_2, \dots, u_n + v_n \end{bmatrix}
+\end{displaymath}
+
+Vector addition is associative and commutative:
+
+\begin{displaymath}
+(x + y) + z = x + (y + z)
+\end{displaymath}
+
+\begin{displaymath}
+x + y = y + x
+\end{displaymath}
+
+\subsection{Vector scalar multiplication}
+
+Vector scalar multiplication has the effect of scaling the vector. That is, if the vector represents a line or plane, then multiplying it by a scalar increases or decreases the size of the line or plane. Vector scalar multiplication is defined as:
+ \begin{displaymath}
+\alpha \begin{bmatrix} v_1, v_2, \dots, v_n \end{bmatrix} = \begin{bmatrix} \alpha v_1, \alpha v_2, \dots \alpha v_n \end{bmatrix}
+\end{displaymath}
+
+Vector scalar multiplication is distributive over vector addition:
+
+\begin{displaymath}
+\alpha(u + v) = \alpha u + \alpha v
+\end{displaymath}
+
+An expression of the form $\alpha u + \beta v$ where $\alpha + \beta = 1$ is called an \textit{affine combination}. The set of all affine combinations of $u$ and $v$ is the line that passes through $u$ and $v$.
+
+\subsection{Dot product}
+
+The input to the dot product is two vectors and the output is a scalar. The dot product is sometimes called the \textit{scalar product}. The dot product of two vectors is defined as:
+
+\begin{displaymath}
+u \dot v = \Sigma u[k] v[k]
+\end{displaymath}
+
+\subsection{Linear combination}
+
+A linear combination of vectors is defined as the sum of a series of scaled vectors:
+
+\begin{displaymath}
+\alpha_1 v_1 + \dots + \alpha_n v_n
+\end{displaymath}
+
+\subsection{Vector span}
+
+A vector span is defined as the set of all linear combinations of some vectors $v_1, \dots, v_n$. It is written as $\text{Span} \{v_1, \dots, v_n \}$. A span of a single vectors is defined as $\text{Span} \{v\} = \{ \alpha v : a \in \mathbb{R}\}$.
+
+\subsection{Generators}
+
+A generator is defined as a set of vectors in \textsl{V}, $v_1, \dots, v_n$ that comprise $\text{Span}\{\textsl{V}\}$. 
+
+\subsection{Abstract Vector Space}
+
+An abstract vector space is a set of vectors \textsl{V} over a field \mathbb{F} that has an addition operation, a multiplication operation, a zero vector, and where the following holds true:
+
+If \textsl{V} contains $v$, then it contains $\alpha v$ for every scalar $\alpha$
+
+If \textsl{V} contains $u$ and $v$, then it contains $u + v$.
+
+\subsection{Affine space and affine combination}
+
+An affine space for the vector c and the vector space \textsl{V} is defined as $c + \textsl{V}$. 
+
+An affine combination over the vectors $u_1, u_2, u_3$ is $\gamma u_1 + \alpha u_2 + \beta u_3$, where $\gamma + \alpha + \beta = 1$. The set of all affine combinations over $u_1, u_2, u_3$ is called the affine hull.
+
+\subsection{Homogenious linear system}
+
+A linear equation in the form $a \dot x = 0$ is a homogenious linear equation. A set of homogenious linear equations is a homogenious linear system. The solution set for a homogenious linear system is either empty or an affine space.
+
+\section{Matrix}
+
+\subsection{Matrix vector multiplication}
+
+\subsection{Vector matrix multiplication}
+
+\subsection{Matrix Matrix multiplication}
+
+\end{document}  
