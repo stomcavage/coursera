@@ -18,7 +18,7 @@ def add(A, B):
 
 def scalar_mul(M, alpha):
     "Returns the product of scalar alpha with M" 
-    return Mat(M.D, {k : v * alpha for (k,v) in M.f.items()})
+    return Mat(M.D, {k : v * alpha for (k,v) in M.f.items() if v * alpha != 0})
     pass
 
 def equal(A, B):
@@ -28,6 +28,7 @@ def equal(A, B):
 
 def transpose(M):
     "Returns the transpose of M"
+    return Mat(M.D, {(j, i) : getitem(M, (i, j)) for (i,j) in M.f.keys()})
     pass
 
 def vector_matrix_mul(v, M):
