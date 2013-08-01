@@ -1,28 +1,30 @@
 from vec import Vec
+import itertools
 
 def getitem(M, k):
     "Returns the value of entry k in M.  The value of k should be a pair."
     assert k[0] in M.D[0] and k[1] in M.D[1]
-    pass
+    return M.f[k] if k in M.f else 0 
 
 def setitem(M, k, val):
     "Sets the element of v with label k to be val.  The value of k should be a pair"
     assert k[0] in M.D[0] and k[1] in M.D[1]
-    pass
+    M.f[k] = val
 
 def add(A, B):
     "Returns the sum of A and B"
     assert A.D == B.D
-    pass
+    return Mat(A.D, {k : getitem(A, k) + getitem(B, k) for k in itertools.product(A.D[0], A.D[1]) if k in A.f or k in B.f})
 
 def scalar_mul(M, alpha):
     "Returns the product of scalar alpha with M" 
+    return Mat(M.D, {k : v * alpha for (k,v) in M.f.items()})
     pass
 
 def equal(A, B):
     "Returns true iff A is equal to B"
     assert A.D == B.D
-    pass
+    return A.f.items() == B.f.items() 
 
 def transpose(M):
     "Returns the transpose of M"
