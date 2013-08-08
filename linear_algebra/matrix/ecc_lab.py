@@ -3,25 +3,32 @@ from mat import Mat
 from bitutil import noise
 from GF2 import one
 
+import matutil
+
 ## Task 1 part 1
 """ Create an instance of Mat representing the generator matrix G. You can use
 the procedure listlist2mat in the matutil module (be sure to import first).
 Since we are working over GF (2), you should use the value one from the
 GF2 module to represent 1"""
-G = None
+G = matutil.listlist2mat([[one,0,one,one], [one, one, 0, one], [0, 0, 0, one], [one, one, one, 0], [0, 0, one, 0], [0, one, 0, 0], [one, 0, 0, 0]])
 
 ## Task 1 part 2
 # Please write your answer as a list. Use one from GF2 and 0 as the elements.
-encoding_1001 = None
+encoding_1001 = [0, 0, one, one, 0, 0, one]
 
 
 ## Task 2
 # Express your answer as an instance of the Mat class.
-R = None
+R = matutil.listlist2mat([[0, 0, one, 0, one, one, 0], [one, 0, one, 0, one, 0, one], [0, one, one, 0, 0, one, one], [0, 0, 0, one, one, one, one]])
+
+# 0 0 1 0 1 1 0
+# 1 0 1 0 1 0 1
+# 0 1 1 0 0 1 1
+# 0 0 0 1 1 1 1
 
 ## Task 3
 # Create an instance of Mat representing the check matrix H.
-H = None
+H = matutil.listlist2mat([[0, 0, 0, one, one, one, one], [0, one, one, 0, 0, one, one], [one, 0, one, 0, one, 0, one]])
 
 ## Task 4 part 1
 def find_error(e):

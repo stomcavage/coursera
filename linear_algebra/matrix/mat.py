@@ -18,33 +18,43 @@ def add(A, B):
 
 def scalar_mul(M, alpha):
     "Returns the product of scalar alpha with M" 
-    return Mat(M.D, {k : v * alpha for (k,v) in M.f.items() if v * alpha != 0})
-    pass
+    d = M.D
+    return Mat(d, {k : v * alpha for (k,v) in M.f.items() if v * alpha != 0})
 
 def equal(A, B):
     "Returns true iff A is equal to B"
     assert A.D == B.D
-    return A.f.items() == B.f.items() 
+    return [getitem(A, k) for k in itertools.product(A.D[0], A.D[1])] == [getitem(B, k) for k in itertools.product(B.D[0], B.D[1])]
 
 def transpose(M):
     "Returns the transpose of M"
     return Mat(M.D, {(j, i) : getitem(M, (i, j)) for (i,j) in M.f.keys()})
-    pass
 
 def vector_matrix_mul(v, M):
     "Returns the product of vector v and matrix M"
     assert M.D[0] == v.D
-    pass
+    d = {}
+    for (i,j) in M.f.keys():
+        d[j] = d[j] + getitem(M, (i, j)) * v[i] if j in d else getitem(M, (i, j)) * v[i]
+    return Vec(M.D[1], d)
 
 def matrix_vector_mul(M, v):
     "Returns the product of matrix M and vector v"
     assert M.D[1] == v.D
-    pass
+    d = {}
+    for (i,j) in M.f.keys():
+        d[i] = d[i] + getitem(M, (i, j)) * v[j] if i in d else getitem(M, (i, j)) * v[j]
+    return Vec(M.D[0], d)
 
 def matrix_matrix_mul(A, B):
     "Returns the product of A and B"
     assert A.D[1] == B.D[0]
-    pass
+    rows = {row:Vec(A.D[1], {col:A[row,col] for col in A.D[1]}) for row in A.D[0]}
+    cols = {col:Vec(B.D[0], {row:B[row,col] for row in B.D[0]}) for col in B.D[1]}
+    D = ({i for i in A.D[0]}, {j for j in B.D[1]})
+    f = {(row, col) : u*v for (row, u) in rows.items() for (col, v) in cols.items() if u*v != 0}
+    return Mat(D, f) 
+
 
 ################################################################################
 
