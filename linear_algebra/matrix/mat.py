@@ -28,7 +28,7 @@ def equal(A, B):
 
 def transpose(M):
     "Returns the transpose of M"
-    return Mat(M.D, {(j, i) : getitem(M, (i, j)) for (i,j) in M.f.keys()})
+    return Mat((M.D[1], M.D[0]), { (y,x) : getitem(M, (x,y)) for x in M.D[0] for y in M.D[1] })
 
 def vector_matrix_mul(v, M):
     "Returns the product of vector v and matrix M"
