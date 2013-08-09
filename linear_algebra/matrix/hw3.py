@@ -203,22 +203,21 @@ def dot_prod_mat_mat_mult(A, B):
 
 
 ## Problem 18
-solving_systems_x1 = ...
-solving_systems_x2 = ...
-solving_systems_y1 = ...
-solving_systems_y2 = ...
-solving_systems_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {...})
-solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {...})
-
+solving_systems_x1 = -1/5
+solving_systems_x2 = 2/5
+solving_systems_y1 = 4/5
+solving_systems_y2 = -3/5
+solving_systems_m = Mat(({0, 1}, {0, 1}), {(0,0): -1/5, (0, 1): 4/5, (1,0): 2/5, (1,1): -3/5})
+solving_systems_a = Mat(({0, 1}, {0, 1}), {(0,0): 3, (0,1): 4, (1,0): 2, (1,1): 1} )
+solving_systems_a_times_m = Mat(({0, 1}, {0, 1}), {(0,0): 1, (1,1):1})
+solving_systems_m_times_a = Mat(({0, 1}, {0, 1}), {(0,0): 1, (1,1):1})
 
 
 ## Problem 19
 # Please write your solutions as booleans (True or False)
 
-are_inverses1 = ...
-are_inverses2 = ...
-are_inverses3 = ...
-are_inverses4 = ...
+are_inverses1 = True
+are_inverses2 = True
+are_inverses3 = False
+are_inverses4 = False
 
