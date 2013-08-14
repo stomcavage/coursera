@@ -199,7 +199,14 @@ def is_superfluous(L, i):
         >>> is_superfluous([a0,a1,a2,a3], 1)
         False
     '''
-    pass
+    assert i in range(len(L))
+    if len(L) > 1:
+        colVecs = coldict2mat({ x : L[x] for x in range(len(L)) if x != i })
+        u = solve(colVecs, L[i])
+        residual = L[i] - colVecs * u
+    else:
+        residual = 1
+    return residual * residual < 10e-14
 
 
 
