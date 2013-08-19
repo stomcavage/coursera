@@ -119,9 +119,9 @@ sum_to_zero_4 = [one, one, one, one, one, 0, 0]
 ## Problem 11
 ## Please express your answer a list of ints, such as [1,0,0,0,0]
 
-exchange_1 = [...]
-exchange_2 = [...]
-exchange_3 = [...]
+exchange_1 = [0,0,1,0,0]
+exchange_2 = [0,0,0,1,0]
+exchange_3 = [0,0,1,0,0]
 
 
 ## Problem 12
@@ -277,5 +277,7 @@ def exchange(S, A, z):
         >>> exchange(S, A, z) == Vec({0, 1, 2, 3},{0: 0, 1: 0, 2: 1, 3: 0})
         True
     '''
-    pass
-
+    B = S[:]
+    B.append(z)
+    C = [x for x in B if x not in A]
+    return [ B[i] for i in range(len(B)) if is_superfluous(B, i) and B[i] in C ][0]
