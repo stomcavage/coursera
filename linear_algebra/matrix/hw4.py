@@ -233,9 +233,9 @@ def is_independent(L):
     >>> is_independent(vlist[5:])
     True
     '''
-    pass
+    return len([ i for i in range(len(L)) if is_superfluous(L, i) ]) == 0
 
-
+    
 
 ## Problem 17
 def superset_basis(S, L):
@@ -255,9 +255,12 @@ def superset_basis(S, L):
         >>> superset_basis([a0, a3], [a0, a1, a2]) == [Vec({'a', 'c', 'b', 'd'},{'a': 1}), Vec({'a', 'c', 'b', 'd'},{'b':1}),Vec({'a', 'c', 'b', 'd'},{'c': 1})]
         True
     '''
-    pass
-
-
+    T = S[:]
+    for i in range(len(L)):
+        T.append(L[i])
+        if not is_independent(T):
+            T.pop()
+    return T
 
 ## Problem 18
 def exchange(S, A, z):
